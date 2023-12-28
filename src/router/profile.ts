@@ -3,7 +3,9 @@ import {
 	getFollowersProfile,
 	getFollowingsProfile,
 	getFollowingsProfilePublic,
+	getIsFollowing,
 	getPlaylistAudios,
+	getPrivatePlaylistAudios,
 	getPublicPlaylist,
 	getPublicProfile,
 	getPublicUploads,
@@ -29,5 +31,11 @@ router.get("/followings", mustAuth, getFollowingsProfile);
 router.get("/followings/:profileId", mustAuth, getFollowingsProfilePublic);
 
 router.get("/playlist-audios/:playlistId", mustAuth, getPlaylistAudios);
+router.get(
+	"/private-playlist-audios/:playlistId",
+	mustAuth,
+	getPrivatePlaylistAudios
+);
 
+router.get("/is-following/:playlistId", mustAuth, getIsFollowing);
 export default router;
